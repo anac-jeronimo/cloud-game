@@ -3,7 +3,7 @@
     background-size: cover;
     background-image: url('images/simple_but_beautiful_by_xflutt_de4lmm9.png');
     height: 700px;
-    width: 600px;
+    width: 900px;
 }
 .container{
     display:flex;
@@ -13,7 +13,7 @@
     font-size: 30px;
     background-color: rgb(37, 12, 59);
     color: #fff;
-    padding: 20px 40px;
+    padding: 10px 30px;
     border: 0;
     box-shadow: 0;
     border-radius: 10px;
@@ -28,11 +28,33 @@
     box-shadow: 0;
     border-radius: 10px;
     margin-left: 10px;
+    padding: 20px 30px;
 }
 
 #score p{
-    margin-top: 50px;
-    padding: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
+    font-size: 20px;
+    background-color: rgb(37, 12, 59);
+    color: #fff;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 10px;
+    margin-left: 10px;
+    
+}
+
+
+.gameOver {
+    height: 700px;
+    width: 900px;
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-image: url('images/crazycloud (1).png'); 
+    
+}
+.youWon {
+    height: 700px;
+    width: 900px;
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-image: url('images/owen.png');
 }

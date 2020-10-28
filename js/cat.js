@@ -40,7 +40,6 @@ class Cat {
  
 }
 
-//let player = new Cat();
 
 
 
