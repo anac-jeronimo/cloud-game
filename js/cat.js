@@ -2,12 +2,13 @@
 class Cat {
     constructor(game) {
         this.x = 100;
-        this.y=120;
+        this.y= 540;
         this.width = 50;
         this.height = 50;
         this.image = new Image();
         this.game = game;
-        this.image.src = "images/cloud.png";
+        this.image.src = "images/pixelcloud.png";
+        
         //this.image.src = 'images/freya.jpg';  
         //image.addEventListener('load', () => {
             //this.image = image;

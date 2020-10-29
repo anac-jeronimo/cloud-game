@@ -6,8 +6,18 @@ let player;
   
 
 document.getElementById('start-button').addEventListener("click", () => {
-    startGame();
+    startGame();  
 }) ;
+
+ 
+document.getElementById('easy-button').addEventListener("click", () => {
+    startGame(2);  //:::::::::
+}) ;
+
+document.getElementById('medium-button').addEventListener("click", () => {
+    startGame(3);  //:::::::::
+}) ;
+
     
     
 
@@ -22,28 +32,71 @@ function startGame() {
     updateCanvas();
    
 }  
+
+function startGame(difficulty) { //:::::::::::
+    currentGame = new Game();
+    currentGame.setDifficulty(difficulty);
+    player = new Cat(currentGame);
+    currentGame.player = player;
+    currentGame.obstacles = obstacles;
+    currentGame.isRunning = true;
+    currentGame.mainImage.className = 'background';
+    refreshObj();
+    updateCanvas();
+   
+}  
     
 
 function refreshObj()
     {   
-
-
-        setInterval(function()
-        { 
-            let dogAndFoodArray = [ "images/browndog.png" , "images/canPixel.png", 
-            "images/catfoodpixel.png ",  "images/dog-pixel-art_2021081.png", " images/owl1.png", " images/owlpixel.png"];
-            let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
-            let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
-            let randmX = Math.floor(Math.random()*700);
-            
-            currentGame.obstacles.push(new Obstacle(randmX, currentGame, randomElement, removePoints))
-        }, 1000);
- 
+        if(currentGame.getDifficulty())
+        {
+            setInterval(function()
+            {    // aqui tenho de ter todos os itens do array, e depois em cada array de lvl 
+                // tenho o array especifico,  OU tenho de ter esta logica em cada nivel? 
+                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixel.png", 
+                "images/catfoodpixel.png ",  "images/dog-pixel-art_2021081.png", " images/owl1.png", " images/owlpixel.png"];
+                let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
+                let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
+                let randmX = Math.floor(Math.random()*700);
+                
+                currentGame.obstacles.push(new Obstacle(randmX, currentGame, randomElement, removePoints))
+            }, 3000);
+        }
+        if(currentGame.getDifficulty()===2)
+        {
+            setInterval(function()
+            {    // aqui tenho de ter todos os itens do array, e depois em cada array de lvl 
+                // tenho o array especifico,  OU tenho de ter esta logica em cada nivel? 
+                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixel.png", 
+                "images/catfoodpixel.png ",  "images/dog-pixel-art_2021081.png", " images/owl1.png", " images/owlpixel.png"];
+                let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
+                let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
+                let randmX = Math.floor(Math.random()*700);
+                
+                currentGame.obstacles.push(new Obstacle(randmX, currentGame, randomElement, removePoints))
+            }, 2000);
+        }
+        if(currentGame.getDifficulty()===3)
+        {
+            setInterval(function()
+            {    // aqui tenho de ter todos os itens do array, e depois em cada array de lvl 
+                // tenho o array especifico,  OU tenho de ter esta logica em cada nivel? 
+                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixel.png", 
+                "images/catfoodpixel.png ",  "images/dog-pixel-art_2021081.png", " images/owl1.png", " images/owlpixel.png"];
+                let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
+                let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
+                let randmX = Math.floor(Math.random()*700);
+                
+                currentGame.obstacles.push(new Obstacle(randmX, currentGame, randomElement, removePoints))
+            }, 1000);
+        }
+        
 }
 
 
 function updateCanvas() {
-    currentGame.ctx.clearRect(0, 0, 900, 600);
+    currentGame.ctx.clearRect(0, 0, 900, 700);
     currentGame.checkGameOver();
     currentGame.player.draw();
     currentGame.obstacles.forEach((obstacle, index) => {
@@ -65,8 +118,7 @@ function updateCanvas() {
     switch(e.keyCode) {
         case 38:
             if(currentGame.player.y - 25 > 0) {
-                currentGame.player.moveUp();
-                //console.log("jhg");
+                currentGame.player.moveUp();  
             }   
         break;
         case 40:
