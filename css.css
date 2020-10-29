@@ -19,6 +19,24 @@
     box-shadow: 0;
     border-radius: 10px;
 }
+#medium-button {
+    font-size: 30px;
+    background-color: rgb(37, 12, 59);
+    color: #fff;
+    padding: 10px 30px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 10px;
+}
+#easy-button {
+    font-size: 30px;
+    background-color: rgb(37, 12, 59);
+    color: #fff;
+    padding: 10px 30px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 10px;
+}
 
 .h-score {
     font-size: 20px;
@@ -30,7 +48,7 @@
     border-radius: 10px;
     margin-left: 10px;
     padding: 20px 30px;
-}
+} 
 
 #score p{
     font-size: 20px;
@@ -46,7 +64,7 @@
 
 .gameOver {
     height: 700px;
-    width: 900px;
+    width: 1100px; /* was 900*/
     background-repeat:no-repeat;
     background-size: contain;
     background-image: url('images/crazycloud (1).png'); 
@@ -59,4 +77,9 @@
     background-size: contain;
     /*background-image: url('images/owen.png'); */
     background-image: url('https://media2.giphy.com/media/YocXhNZN0yeoc10CdD/giphy.gif');
+}
+
+.giphy {
+    background-size: cover;
+    background-image:url('https://media0.giphy.com/media/l378wcSfS7eXWQgla/giphy.gif?cid=ecf05e478ffq452ncmg2x89hiu1oy3kvwkhyx6dac9w4mbpd&rid=giphy.gif') ;
 }

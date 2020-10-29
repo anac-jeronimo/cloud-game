@@ -1,63 +1,62 @@
 let currentGame;
-let obstacles = [];
 let isOver = false;
 let obstacle;
 let player;
+currentGame = new Game();
+
   
 
 document.getElementById('start-button').addEventListener("click", () => {
-    startGame();  
+    if(!currentGame.isRunning) {
+        startGame(1); 
+    } else {
+        currentGame.reset()
+    }
 }) ;
 
  
 document.getElementById('easy-button').addEventListener("click", () => {
-    startGame(2);  //:::::::::
+    if(!currentGame.isRunning) {
+        startGame(2); 
+    }
+ 
 }) ;
 
 document.getElementById('medium-button').addEventListener("click", () => {
-    startGame(3);  //:::::::::
+    if(!currentGame.isRunning) {
+        startGame(3); 
+    }
 }) ;
 
-    
-    
 
-function startGame() {
-    currentGame = new Game();
-    player = new Cat(currentGame);
-    currentGame.player = player;
-    currentGame.obstacles = obstacles;
-    currentGame.isRunning = true;
-    currentGame.mainImage.className = 'background';
-    refreshObj();
-    updateCanvas();
-   
-}  
+function startGame(difficulty) { 
 
-function startGame(difficulty) { //:::::::::::
-    currentGame = new Game();
     currentGame.setDifficulty(difficulty);
     player = new Cat(currentGame);
     currentGame.player = player;
-    currentGame.obstacles = obstacles;
     currentGame.isRunning = true;
-    currentGame.mainImage.className = 'background';
+    //currentGame.mainImage.className = 'background'; //
     refreshObj();
     updateCanvas();
-   
+    currentGame.checkButtons();
+    document.getElementById('easy-button').style.display = 'none';
+    document.getElementById('medium-button').style.display = 'none';
+    currentGame.mainImage.className = 'giphy';
+    currentGame.playSound();
+    
 }  
     
 
 function refreshObj()
     {   
-        if(currentGame.getDifficulty())
+        if(currentGame.getDifficulty()===1)
         {
             setInterval(function()
-            {    // aqui tenho de ter todos os itens do array, e depois em cada array de lvl 
-                // tenho o array especifico,  OU tenho de ter esta logica em cada nivel? 
-                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixel.png", 
-                "images/catfoodpixel.png ",  "images/dog-pixel-art_2021081.png", " images/owl1.png", " images/owlpixel.png"];
+            {
+                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixelfood.png", 
+                "images/catfoodpixel.png ",  " images/owl1.png", ];
                 let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
-                let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
+                let removePoints = randomElement.includes('dog') || randomElement.includes('owl') ;
                 let randmX = Math.floor(Math.random()*700);
                 
                 currentGame.obstacles.push(new Obstacle(randmX, currentGame, randomElement, removePoints))
@@ -66,9 +65,8 @@ function refreshObj()
         if(currentGame.getDifficulty()===2)
         {
             setInterval(function()
-            {    // aqui tenho de ter todos os itens do array, e depois em cada array de lvl 
-                // tenho o array especifico,  OU tenho de ter esta logica em cada nivel? 
-                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixel.png", 
+            {    
+                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixelfood.png", 
                 "images/catfoodpixel.png ",  "images/dog-pixel-art_2021081.png", " images/owl1.png", " images/owlpixel.png"];
                 let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
                 let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
@@ -80,10 +78,10 @@ function refreshObj()
         if(currentGame.getDifficulty()===3)
         {
             setInterval(function()
-            {    // aqui tenho de ter todos os itens do array, e depois em cada array de lvl 
-                // tenho o array especifico,  OU tenho de ter esta logica em cada nivel? 
-                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixel.png", 
-                "images/catfoodpixel.png ",  "images/dog-pixel-art_2021081.png", " images/owl1.png", " images/owlpixel.png"];
+            {   
+                let dogAndFoodArray = [ " images/canPixelfood.png", "images/dog-pixel-art_2021081.png", " images/owl1.png", 
+                "images/browndog.png",  "catfoodpixel.png" , "images/owl2.png ",
+               " images/ramenfood.png", "images/owlpixel.png", "images/superhero-dog.png" ];
                 let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
                 let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
                 let randmX = Math.floor(Math.random()*700);

@@ -1,4 +1,7 @@
-
+let miau = new Audio("images/meow.wav");
+let newmiau = new Audio("images/Cat.wav-8970-Free-Loops.com.mp3");
+let miau1 = new Audio(" images/meow1.wav");
+//let miau2 = new Audio(" images/meow2.wav");
 class Cat {
     constructor(game) {
         this.x = 100;
@@ -23,16 +26,20 @@ class Cat {
         return this.y;
     }
     moveUp() {
-        this.y -= 25;    
+        this.y -= 25; 
+        newmiau.play(); 
     }
     moveDown() {
         this.y += 25;
+       miau.play(); 
     }
     moveLeft() {
         this.x -= 25;
+        miau1.play(); 
     }
     moveRight() {
         this.x += 25;
+        miau.play(); 
     }
     draw() {
         this.game.ctx.drawImage(this.image,this.x,this.y,50,50);
