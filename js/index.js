@@ -53,41 +53,41 @@ function refreshObj()
         {
             setInterval(function()
             {
-                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixelfood.png", 
+                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixefood.png", 
                 "images/catfoodpixel.png ",  " images/owl1.png", ];
                 let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
                 let removePoints = randomElement.includes('dog') || randomElement.includes('owl') ;
                 let randmX = Math.floor(Math.random()*700);
                 
                 currentGame.obstacles.push(new Obstacle(randmX, currentGame, randomElement, removePoints))
-            }, 3000);
+            }, 2000);
         }
         if(currentGame.getDifficulty()===2)
         {
             setInterval(function()
             {    
-                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixelfood.png", 
+                let dogAndFoodArray = [ "images/browndog.png" , "images/canPixefood.png", 
                 "images/catfoodpixel.png ",  "images/dog-pixel-art_2021081.png", " images/owl1.png", " images/owlpixel.png"];
                 let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
                 let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
                 let randmX = Math.floor(Math.random()*700);
                 
                 currentGame.obstacles.push(new Obstacle(randmX, currentGame, randomElement, removePoints))
-            }, 2000);
+            }, 1000);
         }
         if(currentGame.getDifficulty()===3)
         {
             setInterval(function()
             {   
-                let dogAndFoodArray = [ " images/canPixelfood.png", "images/dog-pixel-art_2021081.png", " images/owl1.png", 
-                "images/browndog.png",  "catfoodpixel.png" , "images/owl2.png ",
+                let dogAndFoodArray = [ " images/canPixefood.png", "images/dog-pixel-art_2021081.png", " images/owl1.png", 
+                "images/browndog.png",  "images/catfoodpixel.png" , "images/owl2.png ",
                " images/ramenfood.png", "images/owlpixel.png", "images/superhero-dog.png" ];
                 let randomElement = dogAndFoodArray[Math.floor(Math.random() * dogAndFoodArray.length)];
                 let removePoints = randomElement.includes('dog') || randomElement.includes('owl');
                 let randmX = Math.floor(Math.random()*700);
                 
                 currentGame.obstacles.push(new Obstacle(randmX, currentGame, randomElement, removePoints))
-            }, 1000);
+            }, 700);
         }
         
 }

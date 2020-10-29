@@ -1,7 +1,8 @@
-let miau = new Audio("images/meow.wav");
+
+let miau = new Audio("images/meow_short.wav");
 let newmiau = new Audio("images/Cat.wav-8970-Free-Loops.com.mp3");
 let miau1 = new Audio(" images/meow1.wav");
-//let miau2 = new Audio(" images/meow2.wav");
+let miau2 = new Audio(" images/cat13.wav");
 class Cat {
     constructor(game) {
         this.x = 100;
@@ -39,7 +40,7 @@ class Cat {
     }
     moveRight() {
         this.x += 25;
-        miau.play(); 
+        miau2.play(); 
     }
     draw() {
         this.game.ctx.drawImage(this.image,this.x,this.y,50,50);

@@ -35,17 +35,22 @@ class Game {
           this.player.y < obstacle.y + obstacle.height) {
               console.log(obstacle)
              if(obstacle.removePoints) {
+               console.log(obstacle)
                 currentGame.obstacles.splice(index, 1)
                 this.score -=1;
                 document.getElementById('score').innerHTML = this.score;
-                currentGame.obstacle.includes('owl').owlSound.play();
-                currentGame.obstacle.isdog('dog').dogSound.play();
+                if (obstacle.image.src.includes('owl')) {
+                  owlSound.play();
+
+                } else {
+                  dogSound.play();
+                }
 
               }  else {
                 currentGame.obstacles.splice(index, 1)
                 this.score +=1;
                 document.getElementById('score').innerHTML = this.score;
-                currentGame.obstacle.includes('food').crunchSound.play();
+                crunchSound.play();
               }
             }
              
