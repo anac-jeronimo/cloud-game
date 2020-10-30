@@ -64,7 +64,7 @@ class Game {
           this.mainImage.className = 'gameOver';
           
         }
-        else if(this.score >= 20) {
+        else if(this.score >= 15) {
           this.reset();
           this.ctx.clearRect(0, 0, 900, 700);
           this.isRunning = false;
